@@ -90,12 +90,25 @@
             font-weight: 600;
         }
         
-        input[type="number"] {
+        input[type="number"], input[type="checkbox"] { /* Added checkbox styling */
             width: 100%;
             padding: 10px;
             border: 1px solid var(--border);
             border-radius: 4px;
             font-size: 16px;
+            box-sizing: border-box; /* Ensures padding doesn't make it wider */
+        }
+
+        /* Specific styling for checkbox to make it look better */
+        input[type="checkbox"] {
+            width: auto; /* Override width for checkbox */
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .checkbox-label { /* New class for checkbox label */
+            display: inline; /* Allow label to be next to checkbox */
+            font-weight: normal; /* Normal weight for checkbox label */
         }
         
         button {
@@ -315,6 +328,10 @@
                         <label for="battle-pass-tier">Current Battle Pass Tier</label>
                         <input type="number" id="battle-pass-tier" min="1" max="60" value="1">
                     </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="owns-premium-pass">
+                        <label for="owns-premium-pass" class="checkbox-label">I own the Premium Battle Pass</label>
+                    </div>
                     <button id="calculate-button">Calculate</button>
                 </div>
                 
@@ -416,8 +433,7 @@
             <div class="card">
                 <h2>Hangar Level Requirements</h2>
                 <div class="hangar-level-grid" id="hangar-level-grid">
-                    <!-- Levels will be filled here by JavaScript -->
-                </div>
+                    </div>
             </div>
         </div>
         
@@ -433,7 +449,6 @@
                 </div>
                 <p>The hangar is a crucial part of your progression in Metalstorm. Each level provides various benefits such as increased aircraft capacity, higher aircraft levels, and more. Understanding the silver requirements for hangar upgrades helps you plan your battle pass progress effectively.</p>
                 </div>
-        </div>
                 <h3>How to Use This Calculator</h3>
                 <ol>
                     <li><strong>Input your current hangar level and progress points</strong> - You can find this information in the hangar section of the game.</li>
@@ -465,4 +480,5 @@
         <p>This tool is not affiliated with the official Metalstorm game or its developers</p>
     </footer>
     <script src="data/script.js"></script>
-    
+</body>
+</html>
